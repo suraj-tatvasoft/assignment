@@ -5,9 +5,13 @@
 3. Click Activate to use your new theme right away.
 
 == Plugin Requirement ==
-1. Advanced Custom Fields you can download it from the wordpress repository or from below link
-   https://wordpress.org/plugins/advanced-custom-fields/ 
+1. Advanced Custom Fields you can download it from the WordPress repository or from below link
+   https://wordpress.org/plugins/advanced-custom-fields/
+2. From the ACF json folder please find the ACF field group JSON file   
 
    
 == Database ==  
-1. Please find the latest database folder the db folder from the wordpress root
+1. Please find the latest database folder the db folder from the WordPress root
+
+== Note ==  
+1. We have implemented the basic design for all other pages
