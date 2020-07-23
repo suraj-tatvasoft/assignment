@@ -319,7 +319,7 @@ Function landing_html($record = 10){
 		$posttags 			= get_the_tags($CID);
 		ob_start();
 		$html="";?>
-		 <div class="col-md-6" >
+		 <div class="col-xl-6" >
 			<article class="press-post press-post--<?php echo strtolower($category_selection);?>">
 				<div class="press-post__image" style="background-image: url('<?php echo $featured_image;?>')"></div>
 				<div class="press-post__data">

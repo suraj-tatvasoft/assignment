@@ -8,7 +8,7 @@ get_header();
 
 <div class="container">
    <div class="row flex flex-column-mob">
-      <div class="col-sm-8 col-md-9">
+      <div class="col-sm-8 col-xl-9">
          <main class="press-release">
             <div class="row" data-repeat-into>
               <?php get_template_part( 'template-parts/content', 'landing' ); ?>
@@ -38,7 +38,7 @@ get_header();
          </main>
       </div>
       <!---Filter Section Start--->
-      <div class="col-sm-4 col-md-3">
+      <div class="col-sm-4 col-xl-3">
          <aside>
             <div class="filters-box">
                 <div class="filters-box__title">Filter by Date</div>

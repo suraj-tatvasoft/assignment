@@ -1,7 +1,13 @@
 #a2apage_dropdown {
     display: none !important
 }
-
+.h4, h4 {
+    font-size: 18px;
+}
+.pager li>a:focus, .pager li>a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
 input {
     outline: none
 }
@@ -396,8 +402,6 @@ footer a:hover {
     -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
-    -webkit-padding-start: 29px;
-    padding-inline-start: 29px
 }
 
 .filters-box__show-more i {
