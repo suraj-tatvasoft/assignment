@@ -2,6 +2,10 @@
     display: none !important
 }
 
+ul.footer-class {
+    list-style: none;
+    padding: 0px;
+}
 input {
     outline: none
 }
@@ -121,7 +125,6 @@ a:focus, a:hover {
 
 body {
     background-color: #F8F8F8;
-    margin-top: 65px;
     font-family: 'Noto Sans', sans-serif, Helvetica !important;
     font-weight: lighter !important;
     font-size: 15px
@@ -854,7 +857,8 @@ input[type=checkbox]:checked + label:before {
 }
 
 .pager .pagination {
-    margin: auto
+    margin: auto;
+	align-items:center;
 }
 
 .pager .pagination a, .pager .pagination span {

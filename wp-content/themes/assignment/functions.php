@@ -134,6 +134,18 @@ function assignment_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Navigation', 'assignment' ),
+			'id'            => 'footer-navigation',
+			'description'   => esc_html__( 'Add widgets here.', 'assignment' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>',
+		)
+	);
 }
 add_action( 'widgets_init', 'assignment_widgets_init' );
 
@@ -153,8 +165,11 @@ function assignment_scripts() {
 	wp_enqueue_style( 'press-release-css', get_template_directory_uri().'/assets/css/press-release.en.css', array(), _S_VERSION ,'all');
 	wp_enqueue_style( 'press-release-ar-css', get_template_directory_uri().'/assets/css/press-release.ar.css', array(), _S_VERSION ,'all');
 
-
+	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'assignment-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/assets/js/swiper.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), _S_VERSION, true );
 	
 }
 add_action( 'wp_enqueue_scripts', 'assignment_scripts' );
@@ -267,4 +282,79 @@ function custom_class( $classes ) {
 		$classes[] = '_ooredoo_website_ _homepage_';
 	}
 	return $classes;
+}
+
+
+/**
+ * Landing Page HTML FUnction
+ */
+Function landing_html($record = 10){
+
+	$landing_array = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => $record,
+        'orderby' => 'date',
+		'order' => 'desc',
+		'meta_query' => array(
+			'relation' => 'AND',
+				array(
+					'key' => 'category_selection',
+					'value' => array('business','consumer','corporate'),
+					'compare' => 'IN'
+				)
+			)
+		);
+	$query = new WP_Query( $landing_array );
+
+	if ( $query->have_posts()):
+		while ( $query->have_posts() ) : $query->the_post();
+		$CID 				= get_the_ID();
+		$category_selection	= get_field('category_selection',$CID);
+		$empty_image 		= get_template_directory_uri().'/assets/images/sample-image.jpg';
+		$featured_img_url 	= get_the_post_thumbnail_url($CID,'full');
+		$featured_image 	= !empty($featured_img_url) ? $featured_img_url : $empty_image;
+		$post_title			= get_the_title($CID);
+		$permalink			= get_the_permalink($CID);
+		$posttags 			= get_the_tags($CID);
+		ob_start();
+		$html="";?>
+		 <div class="col-md-6" >
+			<article class="press-post press-post--<?php echo strtolower($category_selection);?>">
+				<div class="press-post__image" style="background-image: url('<?php echo $featured_image;?>')"></div>
+				<div class="press-post__data">
+				<div class="press-post__meta">
+					<span>
+						<?php if(!empty($category_selection)): ?>  
+							<span class="category"><?php echo $category_selection;?> | </span>
+						<?php endif;?>
+						<span class="date"><?php echo get_the_date();?></span>
+					</span>
+
+				</div>
+				<div class="press-post__title">
+					<a href="<?php echo $permalink;?>"><?php echo $post_title;?></a>
+					<?php if(!empty($posttags)): ?>  
+						<div class="tag-line">
+							<?php foreach($posttags as $tags):
+								$term_id = $tags->term_id;
+								$name    = $tags->name;?>
+								<a class="tag" href="<?php echo get_tag_link($term_id)?>"><?php echo $name;?></a>
+							<?php endforeach;?>
+						</div>
+					<?php endif;?>
+				</div>
+				</div>
+			</article>
+		</div>
+		<?php 
+		endwhile;
+		$html = ob_get_clean();
+		wp_reset_query();
+		wp_reset_postdata();
+	endif;	
+	?>
+	<?php 
+	
+	return $html;
 }

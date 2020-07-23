@@ -38,11 +38,12 @@
 <header class="search-header">
    <div class="container">
       <h2 class="title">Our <span>News</span></h2>
-      <form action="#">
-         <input type="search" class="search-input" placeholder="Search..."/>
-      </form>
+      <form action="<?php echo site_url();?>/" method="get">
+          <input type="text" name="s" class="search-input" placeholder="Search..." id="search" value="<?php the_search_query(); ?>" />
+       </form>
    </div>
 </header>
+
 <nav class="tabs">
    <a href="#" class="tabs__tab">Corporate</a>
    <a href="#" class="tabs__tab active">Consumer</a>

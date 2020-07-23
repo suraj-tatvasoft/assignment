@@ -8,33 +8,12 @@ get_header();
 
 <div class="container">
    <div class="row flex flex-column-mob">
-      <div class="col-sm-8 col-md-9 order-2">
+      <div class="col-sm-8 col-md-9">
          <main class="press-release">
             <div class="row" data-repeat-into>
-               <div class="col-md-6" data-repeat="10">
-                  <article class="press-post press-post--consumer">
-                     <div class="press-post__image" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/press_release_article_img.png)"></div>
-                     <div class="press-post__data">
-                        <div class="press-post__meta">
-                           <span>
-                               <span class="category">Consumer | </span>
-                               <span class="date">AUGUST 6, 2019</span>
-                           </span>
-
-                        </div>
-                        <div class="press-post__title">
-                           <a href="Press.Release-details.en.html">Ooredoo Announces Partnership with Al Khalij Commercial Bank (al Khaliji) to Enable Online
-                              Banking Payments</a>
-                           <div class="tag-line">
-                              <a class="tag" href="">Tag 1</a>
-                              <a class="tag" href="">Tag 2</a>
-                           </div>
-                        </div>
-                     </div>
-                  </article>
-               </div>
+              <?php get_template_part( 'template-parts/content', 'landing' ); ?>
             </div>
-
+            <!---pagination Section Start--->
             <nav class="pager">
                 <ul class="pagination">
                     <li class="arrow"><a href="#">
@@ -55,9 +34,11 @@ get_header();
                     <li><span>11 pages</span></li>
                 </ul>
             </nav>
+            <!---pagination Section End--->
          </main>
       </div>
-      <div class="col-sm-4 col-md-3 order-1">
+      <!---Filter Section Start--->
+      <div class="col-sm-4 col-md-3">
          <aside>
             <div class="filters-box">
                 <div class="filters-box__title">Filter by Date</div>
@@ -72,6 +53,7 @@ get_header();
                 </div>
          </aside>
       </div>
+       <!---Filter Section End--->
    </div>
 </div>
 

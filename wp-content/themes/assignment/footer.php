@@ -15,23 +15,23 @@
 <!-- FOOTER -->
 <footer class="footer">
 	<div class="container">
-		<div class="row-fluid">
+		<div class="row">
 			<div class="col-xs-12 col-md-6 hidden-xs">
+			<div class="footer__header">
+					<?php if ( is_active_sidebar( 'footer-navigation' ) ) : ?>
+						<?php dynamic_sidebar( 'footer-navigation' ); ?>	
+					<?php endif; ?>
+				</div>
 				<div class="row">
-					<div class="col-xs-12 footer__header">
-						<h4>I Want to :</h4>
-					</div>
+					
 					<div class="col-xs-12 col-sm-4 footer__section">
 						<p class="section__header">
 							Explore
 						</p>
-						<a href="#">Hala Plans (Pre-paid)</a>
-						<a href="#">Shahry Plans (Post-paid)</a>
-						<a href="#">Internet</a>
-						<a href="#">Mobile Money</a>
-						<a href="#">Ooredoo App</a>
-						<a href="#">Thuraya Service</a>
-						<a href="#">Community</a>
+						<?php
+						$args = array('menu'=>'explore', 'menu_class' => 'footer-class',);
+						wp_nav_menu($args);
+						?>
 					</div>
 					<div class="col-xs-12 col-sm-4 ">
 						<p class="_footer_section_inner_header_">
@@ -95,20 +95,20 @@
 </footer>
 <footer class="legals">
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 text-center">
+		
+			<div class="text-center">
 				<a href="#" class="_legals_section_link_">General terms and conditions</a>
 				|
 				<a href="#" class="_legals_section_link_">Privacy Policy</a>
 				|
 				<a href="#" class="_legals_section_link_">Contact Us</a>
 			</div>
-			<div class="col-xs-12 text-center">
+			<div class="text-center">
 				<p class="_legals_section_copywrites_">
 					Ooredoo &copy;<?php echo date('Y');?>. All Rights Reserved
 				</p>
 			</div>
-		</div>
+		
 	</div>
 </footer>
 

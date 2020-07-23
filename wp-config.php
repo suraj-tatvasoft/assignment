@@ -80,6 +80,8 @@ $table_prefix = 'as_';
 define( 'WP_DEBUG', false );
 define('FS_METHOD', 'direct');
 define('WP_POST_REVISIONS', false );
+define('ALLOW_UNFILTERED_UPLOADS', true);
+define('DISALLOW_FILE_EDIT', TRUE); 
 
 /* That's all, stop editing! Happy publishing. */
 
