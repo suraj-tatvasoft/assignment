@@ -15,3 +15,10 @@
 
 == Note ==  
 1. We have implemented the basic design for all other pages
+
+== Screenshots ==
+1. https://www.screencast.com/t/nR9NGWsKyq5w
+2. https://www.screencast.com/t/gpIsufyjZ
+3. https://www.screencast.com/t/U0bw1v8ad3T
+4. https://www.screencast.com/t/wqisF4vltyL
+5. https://www.screencast.com/t/NaCtYxPt
