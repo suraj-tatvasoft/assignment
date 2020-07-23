@@ -146,6 +146,15 @@ function assignment_scripts() {
 
 	wp_enqueue_script( 'assignment-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+
+	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), _S_VERSION ,'all');
+	wp_enqueue_style( 'swiper-css', get_template_directory_uri().'/assets/css/swiper.css', array(), _S_VERSION ,'all');
+	wp_enqueue_style( 'font-awesome-css', get_template_directory_uri().'/assets/css/font-awesome.min.css', array(), _S_VERSION ,'all');
+	wp_enqueue_style( 'press-release-css', get_template_directory_uri().'/assets/css/press-release.en.css', array(), _S_VERSION ,'all');
+	wp_enqueue_style( 'press-release-ar-css', get_template_directory_uri().'/assets/css/press-release.ar.css', array(), _S_VERSION ,'all');
+
+
+	wp_enqueue_script( 'assignment-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	
 }
 add_action( 'wp_enqueue_scripts', 'assignment_scripts' );
@@ -246,3 +255,16 @@ function disable_comments_admin_bar() {
 	}
 }
 add_action('init', 'disable_comments_admin_bar');
+
+
+/**
+ * Add Custom Class for landing pag
+ */
+add_filter( 'body_class', 'custom_class' );
+function custom_class( $classes ) {
+	
+	if(is_front_page()) {
+		$classes[] = '_ooredoo_website_ _homepage_';
+	}
+	return $classes;
+}

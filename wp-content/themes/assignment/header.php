@@ -16,44 +16,35 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<link rel="icon" href="<?php echo get_template_directory_uri();?>/assets/images/favicon.ico" type="image/x-icon" />
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'assignment' ); ?></a>
+	<?php wp_body_open(); ?>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$assignment_description = get_bloginfo( 'description', 'display' );
-			if ( $assignment_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $assignment_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+<!-- HEADER -->
+<nav class="navbar navbar-default navbar-fixed-top _ooredoo_website_header_">
+   <div class="container _ooredoo_website_main_navbar_">
+      <div class="navbar-header">
+         <a href="<?php echo site_url();?>" class="navbar-brand">
+            <img src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg" alt="logo" height="34px">
+         </a>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'assignment' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+      </div>
+   </div>
+</nav>
+
+<header class="search-header">
+   <div class="container">
+      <h2 class="title">Our <span>News</span></h2>
+      <form action="#">
+         <input type="search" class="search-input" placeholder="Search..."/>
+      </form>
+   </div>
+</header>
+<nav class="tabs">
+   <a href="#" class="tabs__tab">Corporate</a>
+   <a href="#" class="tabs__tab active">Consumer</a>
+   <a href="#" class="tabs__tab">Business</a>
+</nav>
